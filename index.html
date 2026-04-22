@@ -1,37 +1,128 @@
-<style>
-    :root {
-        --primary: #2563eb;    /* Bright Blue for buttons and "Pet" */
-        --navy: #003366;       /* Deep Navy for headings and "Veri" */
-        --dark: #1e293b;
-        --light: #f8fafc;
-    }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--dark); margin: 0; background: var(--light); }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriPet</title>
+    <style>
+        :root {
+            --primary: #2563eb;    /* Bright Blue */
+            --navy: #003366;       /* Deep Navy */
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
 
-    /* Logo Styling */
-    .logo { font-weight: 800; font-size: 1.5rem; color: var(--navy); }
-    .logo span { color: var(--primary); }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            line-height: 1.5; 
+            color: var(--dark); 
+            margin: 0; 
+            background: var(--light); 
+        }
 
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; }
-    section { padding: 5rem 5%; }
-    .hero { text-align: center; background: white; padding: 8rem 5%; }
-    
-    /* Heading Colors */
-    h1, h2, h3, h4 { color: var(--navy); }
-    h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 5%; 
+            background: white; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0;
+        }
 
-    /* Button Styling */
-    .btn { background: var(--primary); color: white; padding: 0.8rem 2rem; border-radius: 0.5rem; text-decoration: none; display: inline-block; font-weight: 600; margin-top: 1rem; transition: background 0.3s; }
-    .btn:hover { background: #1d4ed8; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--navy); }
+        .logo span { color: var(--primary); }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
-    
-    /* Anchor Line Styling */
-    .anchor-line { text-align: center; font-weight: 600; margin: 3rem 0; color: var(--navy); font-size: 1.1rem; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; }
 
-    footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
-    .disclaimer { font-size: 0.85rem; opacity: 0.8; margin-top: 2rem; border-top: 1px solid #334155; padding-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-    @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } }
-</style>
+        section { padding: 5rem 5%; }
+
+        .hero { 
+            text-align: center; 
+            background: var(--navy); 
+            color: white; 
+            padding: 8rem 5%; 
+        }
+
+        h1, h2, h3, h4 { color: var(--navy); }
+        .hero h1 { color: white; font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
+
+        .btn { 
+            background: var(--primary); 
+            color: white; 
+            padding: 0.8rem 2rem; 
+            border-radius: 0.5rem; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-weight: 600; 
+            margin-top: 1rem;
+        }
+        .btn:hover { background: #1d4ed8; }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 3rem; 
+        }
+
+        .card { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 1rem; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            border-top: 4px solid var(--primary); 
+        }
+
+        footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
+
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Veri<span>Pet</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn" style="margin-top:0">Get Started</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Your Pet's Health, <br>Verified.</h1>
+        <p>The secure platform for managing pet records and vaccinations.</p>
+        <a href="#" class="btn">Learn More</a>
+    </header>
+
+    <section>
+        <div class="grid">
+            <div class="card">
+                <h3>Digital ID</h3>
+                <p>Secure digital passports for your pets that go everywhere you do.</p>
+            </div>
+            <div class="card">
+                <h3>Verified Records</h3>
+                <p>Direct integration with clinics ensures data integrity and trust.</p>
+            </div>
+            <div class="card">
+                <h3>Easy Sharing</h3>
+                <p>Share medical history with groomers, boarders, or new vets instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VeriPet. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
