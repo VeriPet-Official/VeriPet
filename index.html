@@ -1,110 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriPet - Report. Protect. Enforce.</title>
-    <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
-        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--dark); margin: 0; background: var(--light); }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; }
-        section { padding: 5rem 5%; }
-        .hero { text-align: center; background: white; padding: 8rem 5%; }
-        h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
-        .btn { background: var(--primary); color: white; padding: 0.8rem 2rem; border-radius: 0.5rem; text-decoration: none; display: inline-block; font-weight: 600; margin-top: 1rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .anchor-line { text-align: center; font-weight: 600; margin: 3rem 0; color: var(--primary); font-size: 1.1rem; }
-        footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
-        .disclaimer { font-size: 0.85rem; opacity: 0.8; margin-top: 2rem; border-top: 1px solid #334155; padding-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } }
-    </style>
-</head>
-<body>
+<style>
+    :root {
+        --primary: #2563eb;    /* Bright Blue for buttons and "Pet" */
+        --navy: #003366;       /* Deep Navy for headings and "Veri" */
+        --dark: #1e293b;
+        --light: #f8fafc;
+    }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: var(--dark); margin: 0; background: var(--light); }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
 
-<nav>
-    <div class="logo">Veri<span>Pet</span></div>
-    <ul class="nav-links">
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#serve">Who We Serve</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="btn" style="margin-top:0">Request Consultation</a>
-</nav>
+    /* Logo Styling */
+    .logo { font-weight: 800; font-size: 1.5rem; color: var(--navy); }
+    .logo span { color: var(--primary); }
 
-<section class="hero">
-    <h1>Report Animal Abuse <br>Documentation & Compliance</h1>
-    <p>Empowering organizations and citizens to create legally actionable documentation for animal welfare.</p>
-    <a href="#how" class="btn">Learn More</a>
-</section>
-
-<section id="how" style="background: white;">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h2>How VeriPet Works</h2>
-        <p>Our platform facilitates the intake, preparation, and secure storage of animal abuse evidence. <strong>Cases are prepared and made available to verified investigators and legal partners</strong> to ensure accurate reporting and accountability.</p>
-    </div>
-
-    <!-- UPDATE 2: CURRENT DEPLOYMENT STATUS -->
-    <div class="card" style="max-constant: 800px; margin: 3rem auto; border-left: 5px solid var(--primary);">
-        <h3>Current Deployment Status</h3>
-        <p>VeriPet is actively building its national network of partners across animal welfare, legal, and enforcement sectors. Public reporting and evidence documentation are fully operational. Investigation and enforcement are supported through partner organizations as we expand region by region.</p>
-    </div>
-</section>
-
-<section id="serve">
-    <!-- UPDATE 5: FOR ORGANIZATIONS -->
-    <div style="max-width: 800px; margin: 0 auto 4rem auto; text-align: center;">
-        <h2>For Organizations</h2>
-        <p>VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling animals or pet-related environments. Our system helps reduce liability, improve reporting accuracy, and support legally actionable case documentation.</p>
-    </div>
-
-    <!-- UPDATE 1: PARTNERSHIPS & IMPLEMENTATION (REPLACED PRICING) -->
-    <div style="text-align: center;">
-        <h2>Compliance Infrastructure Tailored to Your Organization</h2>
-        <p>VeriPet works with organizations, property groups, and municipalities to implement customized animal welfare compliance and reporting systems. Each deployment is tailored based on scale, risk exposure, and operational needs.</p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <h4>Property Monitoring</h4>
-            <p>Community monitoring systems designed for property groups to track and report welfare compliance.</p>
-        </div>
-        <div class="card">
-            <h4>Compliance Infrastructure</h4>
-            <p>Full tracking and reporting infrastructure for organizations requiring high-level oversight.</p>
-        </div>
-        <div class="card">
-            <h4>Data Partnerships</h4>
-            <p>Municipal and regional data partnerships to support large-scale animal welfare initiatives.</p>
-        </div>
-    </div>
-
-    <!-- UPDATE 6: POSITIONING ANCHOR LINE -->
-    <p class="anchor-line">Designed for organizations managing active pet populations, compliance risk, or animal-related liability.</p>
-
-    <div style="text-align: center;">
-        <a href="#contact" class="btn">Request a Consultation</a>
-    </div>
-</section>
-
-<section id="contact" style="background: white; text-align: center;">
-    <h2>Get Involved</h2>
-    <p>Connect with our team to discuss partnerships or system implementation.</p>
-    <p><strong>Email:</strong> contact@veripet.net</p>
-</section>
-
-<footer>
-    <div class="logo" style="color: white; margin-bottom: 1rem;">Veri<span>Pet</span></div>
-    <p>&copy; 2024 VeriPet. All rights reserved.</p>
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; }
+    section { padding: 5rem 5%; }
+    .hero { text-align: center; background: white; padding: 8rem 5%; }
     
-    <!-- UPDATE 4: LEGAL DISCLAIMER -->
-    <div class="disclaimer">
-        VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.
-    </div>
-</footer>
+    /* Heading Colors */
+    h1, h2, h3, h4 { color: var(--navy); }
+    h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
 
-</body>
-</html>
+    /* Button Styling */
+    .btn { background: var(--primary); color: white; padding: 0.8rem 2rem; border-radius: 0.5rem; text-decoration: none; display: inline-block; font-weight: 600; margin-top: 1rem; transition: background 0.3s; }
+    .btn:hover { background: #1d4ed8; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+    
+    /* Anchor Line Styling */
+    .anchor-line { text-align: center; font-weight: 600; margin: 3rem 0; color: var(--navy); font-size: 1.1rem; }
+
+    footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
+    .disclaimer { font-size: 0.85rem; opacity: 0.8; margin-top: 2rem; border-top: 1px solid #334155; padding-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } }
+</style>
