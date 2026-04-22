@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VeriPet | National Pet Protection & Compliance System</title>
-    <!-- Importing your specific fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
             --navy: #0a0e14;
             --teal: #49e326; 
+            --red: #ff4e4e;
             --white: #ffffff;
             --slate: rgba(255,255,255,0.6);
         }
@@ -22,6 +22,19 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Hero Glow Effect */
+        .hero-bg-ring {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26,158,143,0.15) 0%, transparent 70%);
+            z-index: -1;
         }
 
         nav {
@@ -37,97 +50,84 @@
             backdrop-filter: blur(20px);
         }
 
-        .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+        .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; }
         .logo span { color: var(--teal); }
 
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 0.85rem; opacity: 0.7; transition: 0.3s; }
-        .nav-links a:hover { opacity: 1; color: var(--teal); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; }
 
-        section { padding: 12rem 8% 8rem; max-width: 1300px; margin: 0 auto; }
+        .btn-red-nav { background: var(--red); color: white !important; padding: 0.6rem 1.2rem; border-radius: 4px; opacity: 1 !important; font-weight: 700; }
+
+        section { padding: 12rem 8% 6rem; max-width: 1300px; margin: 0 auto; text-align: center; position: relative; }
         
-        .section-tag { color: var(--teal); text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.75rem; font-weight: 800; margin-bottom: 1.5rem; }
-        .section-h { font-family: 'Fraunces', serif; font-size: 4.5rem; line-height: 1; margin-bottom: 2rem; font-weight: 900; letter-spacing: -0.01em; }
-        .section-p { color: var(--slate); font-size: 1.25rem; max-width: 750px; margin-bottom: 3rem; font-weight: 300; }
+        .hero-badge { border: 1px solid rgba(255,255,255,0.1); padding: 0.5rem 1.2rem; border-radius: 50px; display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--teal); margin-bottom: 2rem; background: rgba(255,255,255,0.03); }
+        .section-h { font-family: 'Fraunces', serif; font-size: 5rem; line-height: 1; margin-bottom: 2rem; font-weight: 900; letter-spacing: -0.02em; }
+        .section-p { color: var(--slate); font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem; font-weight: 300; }
 
-        .cta-teal {
-            background: var(--teal);
-            color: var(--navy);
-            padding: 1.25rem 2.8rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 800;
-            display: inline-block;
-            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            font-size: 1rem;
-        }
+        .hero-btns { display: flex; gap: 1.5rem; justify-content: center; align-items: center; }
+        .btn-red { background: var(--red); color: white; padding: 1.2rem 2.5rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-ghost { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.8; }
 
-        .cta-teal:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(73, 227, 38, 0.2); }
+        /* Trust Bar */
+        .trust-bar { display: flex; justify-content: center; gap: 4rem; margin-top: 6rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem; }
+        .trust-item h4 { font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 0.2rem; }
+        .trust-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; }
 
-        /* Steps Layout - Fixed 3-Column */
-        .steps-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 5rem; 
-            margin-top: 6rem;
-        }
-        .step-card span { color: var(--teal); font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; display: block; margin-bottom: 1.5rem; }
-        .step-card h3 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 800; }
-        .step-card p { color: var(--slate); font-size: 1rem; }
+        /* How it Works Grid */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; margin-top: 6rem; text-align: left; }
+        .step-card span { color: var(--teal); font-family: 'Fraunces', serif; font-size: 1.2rem; display: block; margin-bottom: 1rem; opacity: 0.3; }
+        .step-card h3 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 1rem; }
 
-        /* Boxes for New Sections */
-        .featured-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 5rem;
-            border-radius: 32px;
-            margin-top: 4rem;
-        }
+        .featured-box { background: rgba(255,255,255,0.02); padding: 5rem; border-radius: 32px; border: 1px solid rgba(255,255,255,0.05); margin: 4rem 0; text-align: left; }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 4rem; }
-        .card { 
-            background: rgba(255,255,255,0.02); 
-            padding: 3rem; 
-            border-radius: 20px; 
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-        .card:hover { border-color: var(--teal); background: rgba(255,255,255,0.04); }
-
-        footer { padding: 8rem 8% 4rem; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-links { list-style: none; display: flex; gap: 3rem; margin: 3rem 0; }
-        .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.9rem; }
+        footer { padding: 6rem 8%; border-top: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        .footer-links { list-style: none; display: flex; gap: 2.5rem; margin: 2rem 0; }
+        .footer-links a { color: var(--slate); text-decoration: none; font-size: 0.85rem; }
 
         @media (max-width: 1024px) {
-            .steps-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .section-h { font-size: 3rem; }
-            section { padding-top: 8rem; }
+            .section-h { font-size: 3.5rem; }
+            .steps-grid, .trust-bar { grid-template-columns: 1fr; display: block; }
+            .trust-item { margin-bottom: 2rem; }
         }
     </style>
 </head>
 <body>
+
+<div class="hero-bg-ring"></div>
 
 <nav>
     <div class="logo">Veri<span>Pet</span></div>
     <ul class="nav-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#serve">Who We Serve</a></li>
-        <li><a href="#partnerships">Partnerships</a></li>
+        <li><a href="#partners">Partnerships</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#report" style="color: var(--teal); font-weight: 800; opacity: 1;">Report Abuse</a></li>
+        <li><a href="#report" class="btn-red-nav">Report Abuse</a></li>
     </ul>
 </nav>
 
-<section class="hero" id="home">
-    <p class="section-tag">National Pet Protection & Compliance System</p>
-    <h1 class="section-h">Every Animal Deserves<br>Protection With Teeth.</h1>
+<section id="home">
+    <div class="hero-badge">National Pet Protection & Compliance System</div>
+    <h1 class="section-h">Every Animal Deserves Protection With Teeth.</h1>
     <p class="section-p">VeriPet is the national infrastructure for animal welfare—connecting abuse reporting, evidence documentation, and legal enforcement into one accountable system.</p>
-    <a href="#report" class="cta-teal">Report Abuse Now</a>
+    
+    <div class="hero-btns">
+        <a href="#report" class="btn-red">Report Abuse Now</a>
+        <a href="#serve" class="btn-ghost">For Organizations →</a>
+    </div>
+
+    <div class="trust-bar">
+        <div class="trust-item"><h4>Free</h4><p>To Report</p></div>
+        <div class="trust-item"><h4>100%</h4><p>Anonymous</p></div>
+        <div class="trust-item"><h4>24/7</h4><p>Available</p></div>
+        <div class="trust-item"><h4>Encrypted</h4><p>Evidence Storage</p></div>
+    </div>
 </section>
 
-<section class="how" id="how">
-    <p class="section-tag">Implementation</p>
-    <h2 class="section-h">How VeriPet Works</h2>
+<section id="how">
+    <p class="hero-badge">Implementation</p>
+    <h2 class="section-h" style="font-size: 3.5rem;">How VeriPet Works</h2>
     <div class="steps-grid">
         <div class="step-card">
             <span>01</span>
@@ -137,7 +137,7 @@
         <div class="step-card">
             <span>02</span>
             <h3>Verify & Investigate</h3>
-            <p>Cases are classified—neglect, civil, or criminal—and prepared and made available to verified investigators and legal partners.</p>
+            <p>Cases are prepared and made available to verified investigators and legal partners.</p>
         </div>
         <div class="step-card">
             <span>03</span>
@@ -147,75 +147,29 @@
     </div>
 </section>
 
-<section class="status">
+<section id="partners">
     <div class="featured-box">
-        <p class="section-tag">Network Status</p>
+        <p class="hero-badge">Network Status</p>
         <h2 class="section-h" style="font-size: 3rem;">Current Deployment Status</h2>
-        <p class="section-p" style="margin-bottom: 0;">VeriPet is actively building its national network of partners across animal welfare, legal, and enforcement sectors. Public reporting and evidence documentation are fully operational. Investigation and enforcement are supported through partner organizations as we expand region by region.</p>
-    </div>
-</section>
-
-<section class="serve" id="serve">
-    <p class="section-tag">Institutional Layer</p>
-    <h2 class="section-h">Who We Serve</h2>
-    
-    <div style="border-left: 4px solid var(--teal); padding: 0.5rem 0 0.5rem 3rem; margin: 4rem 0;">
-        <h3 style="font-family: 'Fraunces', serif; font-size: 2.2rem; margin-bottom: 1rem; font-weight: 800;">For Organizations</h3>
-        <p class="section-p" style="margin-bottom: 0;">VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling animals or pet-related environments. Our system helps reduce liability, improve reporting accuracy, and support legally actionable case documentation.</p>
-    </div>
-
-    <div class="grid-3">
-        <div class="card">
-            <h3 style="font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 800;">Property Managers</h3>
-            <p style="color: var(--slate); font-size: 0.95rem;">Documented pet welfare monitoring and incident reporting to reduce liability.</p>
-        </div>
-        <div class="card">
-            <h3 style="font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 800;">Homeowner Assoc.</h3>
-            <p style="color: var(--slate); font-size: 0.95rem;">Enforceable compliance systems for community pet standards.</p>
-        </div>
-        <div class="card">
-            <h3 style="font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 800;">Shelters & Rescues</h3>
-            <p style="color: var(--slate); font-size: 0.95rem;">Compliance audits, registry access, and animal documentation.</p>
-        </div>
-    </div>
-</section>
-
-<section class="partnerships" id="partnerships">
-    <p class="section-tag">Partnerships & Implementation</p>
-    <h2 class="section-h">Compliance Infrastructure Tailored to Your Organization</h2>
-    <p class="section-p">VeriPet works with organizations, property groups, and municipalities to implement customized animal welfare compliance and reporting systems. Each deployment is tailored based on scale, risk exposure, and operational needs.</p>
-    
-    <p style="font-style: italic; color: var(--teal); margin: -1rem 0 5rem 0; font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 500;">
-        Designed for organizations managing active pet populations, compliance risk, or animal-related liability.
-    </p>
-
-    <div class="grid-3">
-        <div class="card"><h3>Property & community monitoring systems</h3></div>
-        <div class="card"><h3>Compliance tracking and reporting infrastructure</h3></div>
-        <div class="card"><h3>Municipal and regional data partnerships</h3></div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 6rem;">
-        <a href="#contact" class="cta-teal">Request a Consultation</a>
+        <p class="section-p" style="margin: 0 0 3rem 0; text-align: left;">VeriPet is actively building its national network of partners across animal welfare, legal, and enforcement sectors. Public reporting and evidence documentation are fully operational.</p>
+        
+        <p style="font-style: italic; color: var(--teal); font-family: 'Fraunces', serif; font-size: 1.2rem;">
+            Designed for organizations managing active pet populations, compliance risk, or animal-related liability.
+        </p>
     </div>
 </section>
 
 <footer id="contact">
-    <div class="logo" style="margin-bottom: 2rem;">Veri<span>Pet</span></div>
+    <div class="logo">Veri<span>Pet</span></div>
     <ul class="footer-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#serve">Who We Serve</a></li>
-        <li><a href="#report">Report Abuse</a></li>
-        <li><a href="#partnerships">Partnerships</a></li>
+        <li><a href="#partners">Partnerships</a></li>
     </ul>
-
-    <div style="max-width: 700px; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08);">
-        <p style="font-size: 0.8rem; color: var(--slate); margin-bottom: 2rem; line-height: 1.6;">
-            <strong style="color: var(--white); display: block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05rem;">Notice</strong>
-            VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.
-        </p>
-        <p style="font-size: 0.75rem; opacity: 0.4;">© 2025 VeriPet — National Pet Protection & Compliance System</p>
-    </div>
+    <p style="font-size: 0.8rem; color: var(--slate); max-width: 600px; line-height: 1.6;">
+        VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.
+    </p>
+    <p style="font-size: 0.75rem; opacity: 0.4; margin-top: 2rem;">© 2025 VeriPet — National Pet Protection & Compliance System</p>
 </footer>
 
 </body>
