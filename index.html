@@ -7,19 +7,10 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --navy: #0b1f3a;
-            --navy-mid: #132d52;
-            --navy-light: #1e4272;
-            --teal: #1a9e8f;
-            --teal-light: #22c5b3;
-            --teal-pale: #e8f8f7;
-            --white: #ffffff;
-            --off-white: #f5f7fa;
-            --slate: #64748b;
-            --text: #dfdfe8;
-            --amber: #e8a020;
-            --danger: #c0392b;
-            --text-alt: #1a2744;
+            --navy: #0b1f3a; --navy-mid: #132d52; --navy-light: #1e4272;
+            --teal: #1a9e8f; --teal-light: #22c5b3; --teal-pale: #e8f8f7;
+            --white: #ffffff; --off-white: #f5f7fa; --slate: #64748b;
+            --text: #dfdfe8; --amber: #e8a020; --danger: #c0392b; --text-alt: #1a2744;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,10 +21,10 @@
         .logo { font-family: 'Fraunces', serif; font-size: 1.65rem; font-weight: 900; color: var(--white); letter-spacing: -0.03em; }
         .logo span { color: var(--teal-light); }
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-        .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.7); transition: all 0.2s; }
+        .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.2s; }
         .nav-links a:hover { color: var(--teal-light); }
-
         .nav-report { background: var(--danger); color: var(--white) !important; padding: 0.55rem 1.4rem; border-radius: 4px; animation: pulse-red 2.5s ease infinite; }
+
         @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(192,57,43,0.5); } 70% { box-shadow: 0 0 0 8px rgba(192,57,43,0); } 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); } }
 
         .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; position: relative; overflow: hidden; }
@@ -42,124 +33,43 @@
         .ring2 { width: 900px; height: 900px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .ring3 { width: 1200px; height: 1200px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(26,158,143,0.15); border: 1px solid rgba(26,158,143,0.2); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 2rem; position: relative; z-index: 1; }
-        .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 1.0; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; position: relative; z-index: 1; max-width: 900px; }
+        .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 1.0; color: var(--white); margin-bottom: 1.5rem; position: relative; z-index: 1; }
         .hero h1 em { font-style: italic; color: var(--teal-light); }
         .hero-sub { font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 580px; margin-bottom: 3rem; position: relative; z-index: 1; }
-        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; }
-        .cta-red { background: var(--danger); color: var(--white); padding: 1.1rem 2.5rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 20px rgba(192,57,43,0.4); }
-        .cta-red:hover { background: #d35400; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(192,57,43,0.5); }
-        .cta-ghost { background: transparent; color: rgba(255,255,255,0.7); padding: 1.1rem 2.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.2s; }
-        .cta-ghost:hover { border-color: var(--teal-light); color: var(--teal-light); }
 
-        .trust-bar { display: flex; align-items: center; gap: 3rem; position: relative; z-index: 1; flex-wrap: wrap; justify-content: center; }
-        .trust-item { display: flex; flex-direction: column; }
-        .trust-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; }
-        .trust-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
-        .trust-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
-
-        .urgent-band { background: var(--danger); padding: 1.4rem 2rem; text-align: center; }
-        .urgent-p { font-size: 0.9rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
-        .urgent-a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+        .cta-red { background: var(--danger); color: var(--white); padding: 1.1rem 2.5rem; border-radius: 6px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(192,57,43,0.4); transition: all 0.2s; }
+        .cta-ghost { background: transparent; color: rgba(255,255,255,0.7); padding: 1.1rem 2.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; font-weight: 600; margin-left: 1rem; }
 
         section { padding: 7rem 5rem; }
-        .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+        .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .section-tag::before { content: ""; width: 20px; height: 2px; background: var(--teal); display: block; }
-        .section-h { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--white); margin-bottom: 1.2rem; }
-        .section-p { font-size: 1rem; line-height: 1.85; color: var(--slate); font-weight: 300; max-width: 520px; }
+        .section-h { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.2rem; }
+        .section-p { font-size: 1rem; line-height: 1.85; color: var(--slate); max-width: 520px; }
 
-        .report-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: start; }
-        .report-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
-        .rf-item { display: flex; gap: 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); align-items: flex-start; }
-        .rf-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--teal-pale); display: flex; align-items: center; justify-content: center; color: var(--teal); flex-shrink: 0; }
-        .rf-h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
-        .rf-p { font-size: 0.82rem; color: var(--slate); line-height: 1.6; font-weight: 300; }
-
-        .report-form { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 40px 80px rgba(11,31,58,0.1); position: relative; overflow: hidden; }
-        .report-form::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--danger); }
-        .form-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-        .form-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--danger); animation: blink 1.5s ease infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .report-form h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--navy); }
-        .report-form-sub { font-size: 0.82rem; color: var(--slate); margin-bottom: 2rem; font-weight: 300; line-height: 1.6; }
-
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .fgroup { margin-bottom: 1.25rem; }
-        .fgroup label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.45rem; }
-        .fgroup input, .fgroup select, .fgroup textarea { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid #e2e8f0; border-radius: 6px; background: var(--off-white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: var(--text); outline: none; transition: border-color 0.2s, background-color 0.2s; }
-        .fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color: var(--teal); background: var(--white); }
-        .fgroup textarea { height: 100px; resize: none; grid-column: 1 / -1; }
-
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .anon-check { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--slate); margin-bottom: 1.4rem; cursor: pointer; }
-        .submit-report { width: 100%; background: var(--danger); color: var(--white); padding: 1rem; border: none; border-radius: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .submit-report:hover { background: #a93226; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
-        .form-secure { display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.72rem; color: var(--slate); font-weight: 500; }
-
-        .how { background: var(--navy-mid); }
-        .how-inner { max-width: 1200px; margin: 0 auto; }
-        .how-header { color: var(--white); }
-        .how-header .section-p { color: rgba(255,255,255,0.55); }
-        .how-header .section-tag { color: var(--teal-light); }
-        .how-header .section-tag::before { background: var(--teal-light); }
-
-        .steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; align-items: grid-start; margin-top: 4rem; }
-        .step-card { display: flex; flex-direction: column; gap: 0.75rem; }
-        .step-n { font-family: 'Fraunces', serif; font-weight: 900; color: rgba(255,255,255,0.05); font-size: 5rem; line-height: 1; position: absolute; top: 0.5rem; right: 1rem; }
-        .step-card { background: var(--navy-mid); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+        .step-card { background: var(--navy-mid); padding: 2.5rem 2rem; border-radius: 8px; position: relative; transition: background 0.3s; }
         .step-card:hover { background: var(--navy-light); }
-        .step-card h3 { font-family: 'Fraunces', serif; font-weight: 900; color: var(--white); font-size: 1.4rem; z-index: 1; }
-        .step-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; z-index: 1; }
-        .step-icon { width: 30px; height: 30px; background: var(--teal-light); margin-bottom: 1.5rem; width: 40px; height: 4px; }
+        .step-n { font-family: 'Fraunces', serif; font-weight: 900; color: rgba(255,255,255,0.05); font-size: 4rem; position: absolute; top: 1rem; right: 1rem; }
 
-        .serve { background: var(--white); }
+        .serve { background: var(--white); color: var(--navy); }
         .serve-inner { max-width: 1200px; margin: 0 auto; }
-        .serve-top { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
-        .serve-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .sc { padding: 2rem; border: 1.5px solid #e8edf5; border-radius: 10px; transition: all 0.25s; cursor: default; }
-        .sc:hover { border-color: var(--teal); box-shadow: 0 6px 30px rgba(26,158,143,0.1); transform: translateY(-3px); }
-        .sc-icon { width: 48px; height: 48px; background: var(--teal-pale); margin-bottom: 1.5rem; }
-        .sc h3 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
-        .sc p { font-size: 0.8rem; color: var(--slate); line-height: 1.65; font-weight: 300; }
+        .serve-cards { display: grid; grid-template-columns: repeat(3, 2fr); gap: 1.5rem; margin-top: 3rem; }
+        .sc { padding: 2rem; border: 1.5px solid #e8edf5; border-radius: 10px; transition: all 0.25s; }
+        .sc:hover { border-color: var(--teal); transform: translateY(-3px); }
+        .sc h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+        .sc p { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
 
-        .pricing { background: var(--teal-pale); }
+        .pricing { background: var(--teal-pale); color: var(--navy); }
         .pricing-inner { max-width: 1200px; margin: 0 auto; }
-        .pricing-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; margin-top: 4rem; align-items: start; }
+        .cta-teal { background: var(--teal); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 2rem; }
 
-        .cta-teal { background: var(--teal); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; border: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; display: inline-block; transition: all 0.2s; cursor: pointer; }
-        .cta-teal:hover { background: var(--teal-light); transform: translateY(-1px); }
-
-        .registry { background: var(--navy); padding: 8rem 5rem; text-align: center; position: relative; overflow: hidden; }
-        .registry-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-        .registry-bg { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,158,143,0.15), transparent 70%); top: 50%; left: 50%; margin-top: -300px; margin-left: -300px; pointer-events: none; }
-
-        .contact { background: var(--white); }
-        .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: start; }
-        .contact-info { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-        .ci { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--off-white); border-radius: 8px; font-size: 0.88rem; font-weight: 500; color: var(--navy); text-decoration: none; border: 1.5px solid transparent; transition: all 0.2s; }
-        .ci:hover { border-color: var(--teal); transform: translateX(4px); }
-        .ci-icon { width: 38px; height: 38px; background: var(--teal-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-
-        .footer { background: var(--navy); padding: 5rem 5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-logo { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900; color: var(--white); }
-        .footer-logo span { color: var(--teal-light); }
-        .footer-links { display: flex; gap: 2rem; list-style: none; }
-        .footer-links a { text-decoration: none; font-size: 0.8rem; color: rgba(255,255,255,0.35); transition: color 0.2s; }
-        .footer-links a:hover { color: var(--white); }
-        .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+        footer { background: var(--navy); padding: 5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-disclaimer { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
 
         @media (max-width: 900px) {
-            nav { padding: 0 2rem; }
-            .nav-links { display: none; }
+            nav { padding: 0 2rem; } .nav-links { display: none; }
             section { padding: 5rem 1.5rem; }
-            .report-inner, .how-header, .serve-top, .pricing-layout, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .steps-grid, .serve-cards { grid-template-columns: 1fr; }
-            .frow { grid-template-columns: 1fr; }
-            .footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-            .footer-links { margin: 2rem 0; gap: 1rem; }
-            .hero-trust { gap: 1.5rem; }
-            .trust-divider { display: none; }
-            .registry, .urgent-band { padding: 3rem 1.5rem; }
         }
     </style>
 </head>
@@ -176,108 +86,114 @@
         </ul>
     </nav>
 
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-bg-ring ring1"></div>
         <div class="hero-bg-ring ring2"></div>
         <div class="hero-bg-ring ring3"></div>
-        
-        <div class="hero-badge">National Pet Protection & Compliance System</div>
         <h1>Every Animal Deserves <em>Protection With Teeth.</em></h1>
         <p class="hero-sub">VeriPet is the national infrastructure for animal welfare — connecting abuse reporting, evidence documentation, and legal enforcement into one accountable system.</p>
-        
         <div class="hero-cta-group">
             <a href="#report" class="cta-red">Report Abuse Now</a>
             <a href="#serve" class="cta-ghost">For Organizations →</a>
-        </div>
-
-        <div class="trust-bar" style="margin-top: 5rem;">
-            <div class="trust-item"><span class="trust-num">Free</span><span class="trust-label">To Report</span></div>
-            <div class="trust-divider"></div>
-            <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Anonymous</span></div>
-            <div class="trust-divider"></div>
-            <div class="trust-item"><span class="trust-num">24/7</span><span class="trust-label">Available</span></div>
-            <div class="trust-divider"></div>
-            <div class="trust-item"><span class="trust-num">Encrypted</span><span class="trust-label">Evidence Storage</span></div>
-        </div>
-    </section>
-
-    <div class="urgent-band">
-        <p class="urgent-p">🚨 Witnessing abuse right now? <a href="#report" class="urgent-a">Submit an emergency report instantly</a> — no account required, fully anonymous.</p>
-    </div>
-
-    <section class="report-section" id="report">
-        <div class="report-inner">
-            <div class="report-left">
-                <p class="section-tag">Free Public Layer</p>
-                <h2 class="section-h">Report Animal Abuse</h2>
-                <p class="section-p">Your report becomes encrypted evidence. Every submission is automatically timestamped with full chain-of-custody documentation — ready for legal action.</p>
-                
-                <div class="report-features">
-                    <div class="rf-item"><div class="rf-icon"></div><div><h4 class="rf-h4">Fully Anonymous</h4><p class="rf-p">Whistleblower protections built in. Your name is never required.</p></div></div>
-                    <div class="rf-item"><div class="rf-icon"></div><div><h4 class="rf-h4">Photo, Video & Audio Evidence</h4><p class="rf-p">Upload media directly. All files are encrypted and timestamped automatically.</p></div></div>
-                    <div class="rf-item"><div class="rf-icon"></div><div><h4 class="rf-h4">Legal Escalation Pathways</h4><p class="rf-p">Reports are classified as neglect, civil violation, or criminal abuse and routed to enforcement.</p></div></div>
-                    <div class="rf-item"><div class="rf-icon"></div><div><h4 class="rf-h4">Chain of Custody Documentation</h4><p class="rf-p">Every report is preserved as legally admissible evidence — organized for court use.</p></div></div>
-                </div>
-            </div>
-
-            <div class="report-form">
-                <div class="form-header"><div class="form-dot"></div><h3>Submit a Report</h3></div>
-                <p class="report-form-sub">Secure, encrypted, and confidential. You may remain completely anonymous.</p>
-                <div class="fgroup"><label>Type of Abuse</label><select><option value="">Select classification...</option><option>Neglect / Lack of care</option><option>Physical abuse</option><option>Civil violation</option><option>Criminal abuse</option><option>Hoarding / Unsafe conditions</option><option>Not sure - I need guidance</option></select></div>
-                <div class="fgroup"><label>City / State</label><input type="text" placeholder="e.g. Austin, TX"></div>
-                <div class="form-row"><div class="fgroup"><label>Date of Incident</label><input type="date"></div><div class="fgroup"><label>Address or Location</label><input type="text" placeholder="Street address or description of location"></div></div>
-                <div class="fgroup"><label>Describe What You Witnessed</label><textarea placeholder="Please describe the incident with as much detail as possible..."></textarea></div>
-                <div class="fgroup"><label>Upload Evidence (Optional)</label><input type="file" accept="image/*,video/*,audio/*" multiple></div>
-                <label class="anon-check"><input type="checkbox" checked> Keep my report anonymous - do not collect my contact info</label>
-                <button class="submit-report">Submit Report Securely</button>
-                <div class="form-secure">🛡️ 256-bit encrypted &nbsp;&nbsp; | &nbsp;&nbsp; No account required &nbsp;&nbsp; | &nbsp;&nbsp; Stored securely</div>
-            </div>
         </div>
     </section>
 
     <section class="how" id="how">
         <div class="how-inner">
-            <div class="how-header">
-                <p class="section-tag">The System</p>
-                <h2 class="section-h">How VeriPet Works</h2>
-                <p class="section-p">From a single report to national enforcement — VeriPet connects every step with data, documentation, and legal power.</p>
-            </div>
-            
+            <p class="section-tag">The System</p>
+            <h2 class="section-h">How VeriPet Works</h2>
             <div class="steps-grid">
-                <div class="step-card"><span class="step-n">01</span><div class="step-icon"></div><h3>Report & Document</h3><p>Public submits photos, videos, and reports. Every file is auto-timestamped with full chain-of-custody documentation — ready for legal action.</p></div>
-                <div class="step-card"><span class="step-n">02</span><div class="step-icon"></div><h3>Verify & Investigate</h3><p>Cases are prepared and made available to verified investigators and legal partners.</p></div>
-                <div class="step-card"><span class="step-n">03</span><div class="step-icon"></div><h3>Enforce & Escalate</h3><p>VeriPet supplies evidence and expert testimony — from education programs to felony charges and permanent bans.</p></div>
+                <div class="step-card">
+                    <span class="step-n">01</span>
+                    <h3>Report & Document</h3>
+                    <p>Public submits photos, videos, and reports. Every file is auto-timestamped with full chain-of-custody records.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-n">02</span>
+                    <h3>Verify & Investigate</h3>
+                    <p>Cases are prepared and made available to verified investigators and legal partners.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-n">03</span>
+                    <h3>Enforce & Escalate</h3>
+                    <p>VeriPet supplies evidence and expert testimony — from education programs to felony charges and permanent bans.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW DEPLOYMENT STATUS SECTION -->
-    <section class="deployment-status" style="padding: 5rem 1.5rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <!-- 2. CURRENT DEPLOYMENT STATUS SECTION -->
+    <section class="status" style="background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div style="max-width: 1200px; margin: 0 auto;">
             <p class="section-tag">Status</p>
             <h2 class="section-h">Current Deployment Status</h2>
-            <p class="section-p">VeriPet is actively building its national network of partners across animal welfare, legal, and enforcement sectors. Public reporting and evidence documentation are fully operational. Investigation and enforcement are supported through partner organizations as we expand region by region.</p>
+            <p class="section-p" style="max-width: 800px;">VeriPet is actively building its national network of partners across animal welfare, legal, and enforcement sectors. Public reporting and evidence documentation are fully operational. Investigation and enforcement are supported through partner organizations as we expand region by region.</p>
         </div>
     </section>
 
     <section class="serve" id="serve">
         <div class="serve-inner">
-            <div class="serve-top">
-                <div>
-                    <p class="section-tag">Institutional Layer</p>
-                    <h2 class="section-h">Who We Serve</h2>
-                    <p class="section-p">Organizations use VeriPet to reduce lawsuits, liability, and compliance risk — not just to do the right thing.</p>
-                </div>
-                <!-- FOR ORGANIZATIONS CLARIFICATION -->
-                <div style="padding: 2rem; background: var(--off-white); border-radius: 12px; border-left: 4px solid var(--teal);">
-                    <h3 style="font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.5rem; margin-bottom: 1rem;">For Organizations</h3>
-                    <p class="section-p" style="max-width: 100%;">VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling animals or pet-related environments. Our system helps reduce liability, improve reporting accuracy, and support legally actionable case documentation.</p>
-                    <p style="font-style: italic; color: var(--teal); margin-top: 1rem; font-weight: 600;">Designed for organizations managing active pet populations, compliance risk, or animal-related liability.</p>
-                </div>
+            <p class="section-tag">Institutional Layer</p>
+            <h2 class="section-h" style="color: var(--navy);">Who We Serve</h2>
+            
+            <!-- 5. FOR ORGANIZATIONS CLARIFICATION -->
+            <div style="margin: 3rem 0; padding: 2rem; background: var(--off-white); border-radius: 12px; border-left: 4px solid var(--teal);">
+                <h3 style="font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.5rem; margin-bottom: 1rem;">For Organizations</h3>
+                <p style="color: var(--slate); line-height: 1.7;">VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling animals or pet-related environments. Our system helps reduce liability, improve reporting accuracy, and support legally actionable case documentation.</p>
+                <p style="font-style: italic; color: var(--teal); margin-top: 1rem; font-weight: 600;">Designed for organizations managing active pet populations, compliance risk, or animal-related liability.</p>
             </div>
 
             <div class="serve-cards">
-                <div class="sc"><div class="sc-icon"></div><h3>Apartment Complexes & Property Managers</h3><p>Documented pet welfare monitoring and incident reporting to reduce liability.</p></div>
-                <div class="sc"><div class="sc-icon"></div><h3>Homeowner Associations</h3><p>Enforceable compliance systems for community pet standards.</p></div>
-                <div class="sc"><div class="sc-icon"></div><h3>Shelters & Rescues</h3><p>Compliance audits, registry access, and documentation for animal protection.</p></div>
-                <div class="sc"><div class="sc-icon"></div><h3>Breeders & Pet
+                <div class="sc"><h3>Apartment Complexes</h3><p>Documented pet welfare monitoring and incident reporting to reduce liability.</p></div>
+                <div class="sc"><h3>Homeowner Associations</h3><p>Enforceable compliance systems for community pet standards.</p></div>
+                <div class="sc"><h3>Shelters & Rescues</h3><p>Compliance audits, registry access, and documentation for animal protection.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. PARTNERSHIPS & IMPLEMENTATION (REPLACED PRICING) -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-inner">
+            <p class="section-tag">Partnerships & Implementation</p>
+            <h2 class="section-h" style="color: var(--navy);">Compliance Infrastructure Tailored to Your Organization</h2>
+            <p class="section-p" style="color: var(--slate); max-width: 800px;">VeriPet works with organizations, property groups, and municipalities to implement customized animal welfare compliance and reporting systems. Each deployment is tailored based on scale, risk exposure, and operational needs.</p>
+            
+            <ul style="list-style: none; margin-top: 2rem; color: var(--navy); font-weight: 600; line-height: 2;">
+                <li>• Property & community monitoring systems</li>
+                <li>• Compliance tracking and reporting infrastructure</li>
+                <li>• Municipal and regional data partnerships</li>
+            </ul>
+
+            <a href="#contact" class="cta-teal">Request a Consultation</a>
+        </div>
+    </section>
+    <!-- UPDATED REGISTRY SECTION -->
+    <section class="registry" id="registry" style="background: var(--navy-mid); padding: 8rem 5rem; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05);">
+      <div style="max-width: 850px; margin: 0 auto; position: relative; z-index: 1;">
+        <p class="section-tag" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem; color: var(--teal-light);">
+          <span style="width: 20px; height: 2px; background: var(--teal-light); display: block;"></span>
+          Risk Mitigation
+        </p>
+        <h2 class="section-h" style="font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 900; color: var(--white); margin-bottom: 1.2rem;">National Animal Abuse Registry</h2>
+        <p class="section-p" style="margin: 0 auto 2.5rem; color: rgba(255,255,255,0.6); max-width: 650px; line-height: 1.8;">
+          Court-confirmed abusers are permanently listed in the VeriPet Registry. Organizations, property groups, and breeders utilize our infrastructure to screen active pet populations and prevent repeat offenders from entering their communities or systems.
+        </p>
+        <a href="#contact" class="cta-ghost" style="padding: 1.1rem 2.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; color: rgba(255,255,255,0.7); font-weight: 600; display: inline-block;">Access Registry Infrastructure →</a>
+      </div>
+      
+      <!-- Design Detail: Subtle Glow -->
+      <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,158,143,0.08), transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;"></div>
+    </section>
+
+    <footer>
+        <div class="logo">Veri<span>Pet</span></div>
+        <!-- 4. LEGAL DISCLAIMER -->
+        <p class="footer-disclaimer">
+            VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.
+            <br><br>
+            © 2025 VeriPet — National Pet Protection & Compliance System
+        </p>
+    </footer>
+
+</body>
+</html>
