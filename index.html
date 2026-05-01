@@ -17,15 +17,13 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
 
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5rem; height: 72px; background: rgba(11,31,58,0.97); backdrop-filter: blur(16px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 0 5rem; height: 72px; background: rgba(11,31,58,0.97); backdrop-filter: blur(16px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .logo { font-family: 'Fraunces', serif; font-size: 1.65rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
         .logo span { color: var(--teal-light); }
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
         .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.06em; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: var(--teal-light); }
-        .nav-report { background: var(--danger); color: var(--white) !important; padding: 0.55rem 1.4rem; border-radius: 4px; animation: pulse-red 2.5s ease infinite; }
-
-        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(192,57,43,0.5); } 70% { box-shadow: 0 0 0 8px rgba(192,57,43,0); } 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); } }
+        .nav-report { background: var(--navy-light); color: var(--white) !important; padding: 0.55rem 1.4rem; border-radius: 4px; border: 1px solid var(--teal); }
 
         section { padding: 7rem 5rem; }
         .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; position: relative; }
@@ -33,7 +31,7 @@
         .hero h1 em { font-style: italic; color: var(--teal-light); }
         .hero-sub { font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 700px; margin-bottom: 3rem; position: relative; z-index: 1; }
         .hero-cta-group { display: flex; gap: 1.5rem; position: relative; z-index: 1; }
-        .cta-red { background: var(--danger); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .cta-red { background: var(--teal); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
         .cta-ghost { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
 
         .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
@@ -44,8 +42,8 @@
         .step-card { background: var(--navy-mid); padding: 2.5rem 2rem; border-radius: 8px; position: relative; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
         .step-card:hover { background: var(--navy-light); transform: translateY(-5px); }
         .step-n { font-family: 'Fraunces', serif; font-weight: 900; color: rgba(255,255,255,0.05); font-size: 4rem; position: absolute; top: 1rem; right: 1rem; }
-        .step-card h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 1rem; position: relative; }
-        .step-card p { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
+        .step-h3 { font-size: 1.1rem; color: var(--white); margin-bottom: 1rem; position: relative; }
+        .step-p { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
 
         .serve { background: var(--white); color: var(--navy); }
         .serve-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -55,7 +53,7 @@
         .sc p { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
 
         .pricing { background: var(--teal-pale); color: var(--navy); }
-        .cta-teal { background: var(--teal); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 2rem; }
+        .cta-teal { background: var(--teal); color: var(--white); padding: 1.1rem 2.2rem; border-radius: 6px; text-decoration: none; font-weight: 700; display: inline-block; }
 
         footer { background: var(--navy); padding: 5rem; border-top: 1px solid rgba(255,255,255,0.06); }
         .footer-disclaimer { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 3rem; }
@@ -80,15 +78,15 @@
             <li><a href="#serve">Who We Serve</a></li>
             <li><a href="#pricing">Partnerships</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#report" class="nav-report">Report Abuse</a></li>
+            <li><a href="#report" class="nav-report">Submit Welfare Concern</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <h1>Every Animal Deserves <em>Protection With Teeth.</em></h1>
-        <p class="hero-sub">VeriPet is a compliance and accountability system designed to help communities prevent pet neglect, overbreeding, and abandonment before intervention is required. We create property-level visibility so enforcement becomes proactive instead of reactive.</p>
+        <p class="hero-sub">VeriPet is a compliance and accountability system designed to help communities prevent pet neglect and abandonment before intervention is too late.</p>
         <div class="hero-cta-group">
-            <a href="#report" class="cta-red">Report Abuse Now</a>
+            <a href="#report" class="cta-red">Submit Welfare Concern</a>
             <a href="#how" class="cta-ghost">View System Flow</a>
         </div>
     </section>
@@ -97,7 +95,7 @@
         <div class="serve-inner">
             <p class="section-tag">Enforcement Gaps</p>
             <h2 class="section-h" style="color: var(--navy);">Closing Critical Failures</h2>
-            <p class="section-p" style="color: var(--slate);">Current animal welfare systems are reactive. We address the three critical failures in modern community pet management:</p>
+            <p class="section-p" style="color: var(--slate);">Current animal welfare systems are reactive. We address the three critical failures in community pet management:</p>
             
             <div class="serve-cards">
                 <div class="sc">
@@ -106,7 +104,7 @@
                 </div>
                 <div class="sc">
                     <h3>Visibility Gap</h3>
-                    <p>No early warning system for risk patterns like overbreeding, neglect, or abandonment.</p>
+                    <p>No early warning system for risk patterns like overbreeding or neglect.</p>
                 </div>
                 <div class="sc">
                     <h3>Data Gap</h3>
@@ -125,28 +123,28 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <span class="step-n">01</span>
-                    <h3>Pet Registration</h3>
-                    <p>Property-level census and owner verification with unique Digital Pet IDs.</p>
+                    <h3 class="step-h3">Pet Registration</h3>
+                    <p class="step-p">Property-level census and owner verification with unique Digital Pet IDs.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-n">02</span>
-                    <h3>Activity Tracking</h3>
-                    <p>Regular check-ins and community data inputs to build historical behavior logs.</p>
+                    <h3 class="step-h3">Activity Tracking</h3>
+                    <p class="step-p">Regular check-ins and community data inputs to build historical behavior logs.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-n">03</span>
-                    <h3>Risk Flagging</h3>
-                    <p>System flags patterns like lack of vet updates or sudden pet count increases.</p>
+                    <h3 class="step-h3">Risk Flagging</h3>
+                    <p class="step-p">System flags patterns like lack of vet updates or sudden pet count increases.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-n">04</span>
-                    <h3>Review</h3>
-                    <p>Internal verification and case building for a structured report to authorities.</p>
+                    <h3 class="step-h3">Review</h3>
+                    <p class="step-p">Internal verification and case building for a structured report to authorities.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-n">05</span>
-                    <h3>Action Support</h3>
-                    <p>Targeted outreach or enforcement handover for proactive resolution.</p>
+                    <h3 class="step-h3">Action Support</h3>
+                    <p class="step-p">Targeted outreach or enforcement handover for proactive resolution.</p>
                 </div>
             </div>
         </div>
@@ -159,8 +157,8 @@
             
             <div style="margin: 3rem 0; padding: 2rem; background: var(--off-white); border-radius: 12px; border-left: 4px solid var(--teal);">
                 <h3 style="font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.5rem; margin-bottom: 1rem;">For Organizations</h3>
-                <p style="color: var(--slate); line-height: 1.7;">VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling active pet populations.</p>
-                <p style="font-style: italic; color: var(--teal); margin-top: 1rem; font-weight: 600;">Designed for organizations managing active pet populations, compliance, and risk.</p>
+                <p style="color: var(--slate); line-height: 1.7;">VeriPet provides documentation, compliance tracking, and risk mitigation tools for organizations handling large-scale pet populations.</p>
+                <p style="font-style: italic; color: var(--teal); margin-top: 1rem; font-weight: 600;">Designed for organizations managing active pet populations, compliance, and community safety.</p>
             </div>
 
             <div class="serve-cards">
@@ -175,23 +173,23 @@
         <div class="pricing-inner" style="max-width: 1200px; margin: 0 auto;">
             <p class="section-tag">Partnerships & Implementation</p>
             <h2 class="section-h" style="color: var(--navy);">Compliance Infrastructure Tailored To Your Organization</h2>
-            <p class="section-p" style="color: var(--slate); max-width: 800px;">VeriPet works with organizations, property groups, and municipalities to implement customized compliance systems.</p>
+            <p class="section-p" style="color: var(--slate); max-width: 800px;">VeriPet works with organizations, property groups, and municipalities to implement customized oversight frameworks.</p>
             
             <ul style="list-style: none; margin-top: 2rem; color: var(--navy); font-weight: 600; line-height: 2;">
                 <li>• Property & community monitoring infrastructure</li>
                 <li>• Compliance tracking and reporting dashboards</li>
-                <li>• Municipal and regional data partnerships</li>
+                <li>• Designed to support future municipal and regional coordination</li>
             </ul>
 
-            <a href="#contact" class="cta-teal">Request a Consultation</a>
+            <a href="#contact" class="cta-teal" style="margin-top: 2.5rem;">Request a Consultation</a>
         </div>
     </section>
 
     <footer>
         <div class="logo">Veri<span>Pet</span></div>
         <p class="footer-disclaimer">
-            VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.<br><br>
-            © 2026 VeriPet - National Pet Protection & Compliance System
+            VeriPet is a documentation and compliance platform and does not replace emergency services or law enforcement. If an animal is in immediate danger, please contact local authorities.
+            <br>© 2026 VeriPet - Pet Accountability & Compliance Initiative
         </p>
     </footer>
 
